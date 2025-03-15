@@ -4,20 +4,6 @@ import {useState} from "react";
 
 const [projects, setProjects] = useState([]);
 
-app.get("./content", (req, res) =>
-    fs.readDirectory("/projects", (err, files) => {
-        if (err) {
-            console.log(err);
-            return res.status(500);
-        } else {
-            setProjects(
-                files
-                    .filter((file) => file.isDirectory())
-                    .map((dir) => dir.name)
-            );
-        }
-    })
-}
 
 const projects = [
     {
