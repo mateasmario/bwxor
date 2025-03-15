@@ -7,13 +7,13 @@
 .project-info {
     display: flex;
     flex-direction: row;
-    gap: 5rem;
+    gap: 7rem;
 }
 
 .project-info-nav {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
 }
 
 .project-info-content {

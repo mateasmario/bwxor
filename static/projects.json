@@ -1,5 +1,7 @@
-﻿{
-  "name": "pie",
-  "repo":  "https://github.com/mateasmario/pie"
-  "contributors" [ "Mateaș Mario-Mihai" ]
-}
+﻿[
+  {
+    "name": "pie",
+    "repo": "https://api.github.com/repos/mateasmario/pie",
+    "contributors": [ "Mateaș Mario-Mihai" ]
+  }
+]
