@@ -12,9 +12,9 @@ function Projects() {
 
     // Read from 'static/projects.json'
     // fetch("../../../static/projects.json")
-    fetch("https://raw.githubusercontent.com/mateasmario/bwxor/master/static/projects.json")
+    fetch("https://raw.githubusercontent.com/mateasmario/bwxor/refs/heads/master/static/projects.json")
         .then((response) => {
-           return response.json();
+            return response.json();
         })
         .then((data) => {
             console.log(data);
