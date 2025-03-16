@@ -14,3 +14,16 @@ docker run -d -p 80:5173 bwxor
 ```
 
 `80` is the machine listening port, getting mapped to the vite server that runs locally on port `5173`.
+
+# Maintenance
+
+Running Docker processes can be viewed by using:
+```
+docker ps
+```
+including `-all` also displays the recently stopped processes.
+
+```
+docker logs <containerId>
+```
+will show what went wrong with the startup of your container. `containerId` is to be found in the previous command.
