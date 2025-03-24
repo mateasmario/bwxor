@@ -1,7 +1,7 @@
 [
   {
-    "name": "pie",
-    "repo": "https://api.github.com/repos/mateasmario/pie",
-    "contributors": [ "Mateaș Mario-Mihai" ]
+    "displayName": "pie",
+    "projectName": "pie",
+    "description": "Lightweight code editor with some third-party features and a pretty design."
   }
 ]

@@ -1,10 +1,10 @@
-import ProjectInfo from "./ProjectInfo.tsx";
 import {useState} from "react";
+import ProjectSummary from "./ProjectSummary.tsx";
 
 interface ProjectInfoData {
-    name : string | undefined;
-    repo : string | undefined;
-    contributors : string[] | undefined
+    displayName : string | undefined;
+    projectName : string | undefined;
+    description: string | undefined;
 }
 
 function Projects() {
@@ -24,7 +24,7 @@ function Projects() {
 
     return (
       <div className="projects">
-          {projects.map((project : ProjectInfoData) => <ProjectInfo {... project} />)}
+          {projects.map((project : ProjectInfoData) => <ProjectSummary {... project} />)}
       </div>
     );
 }

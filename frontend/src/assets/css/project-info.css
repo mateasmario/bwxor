@@ -1,27 +1,11 @@
-.projects {
+project-summary {
     display: flex;
-    flex-direction: column;
-    gap: 2.5rem;
 }
 
-.project-info {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-}
-
-.project-info-nav {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    flex-basis: 50px;
-    min-width: 250px;
-}
-
-.project-info-content {
+project-summary-title {
     flex: 1;
 }
 
-.active {
-    text-decoration: underline;
+project-summary-description {
+    flex: 1;
 }
