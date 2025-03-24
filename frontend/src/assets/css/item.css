@@ -1,14 +1,14 @@
-.project-summary {
+.item-summary {
     display: flex;
     flex-direction: column;
     gap: .5rem;
 }
 
-.project-summary-title {
+.item-summary-title {
     flex: 1;
     font-size: 1.75rem;
 }
 
-.project-summary-description {
+.item-summary-description {
     flex: 1;
 }
