@@ -24,7 +24,7 @@ function ItemList(props: ItemListProps) {
                 setItems(data);
             })
             .catch((error) => console.error(error));
-    }, []);
+    }, [props.category]);
 
     return (
         <div className="projects">
