@@ -35,10 +35,10 @@ function Menu() {
                 <div className="menu-layer">
                     <Link to="/" className="menu-header">
                         <div className="menu-branding">Mario Mateaș</div>
-                        <div className="menu-item-burger">
-                            <img src={burger} alt="" onClick={() => burgerClickHandler()}/>
-                        </div>
                     </Link>
+                    <div className="menu-item-burger">
+                        <img src={burger} alt="" onClick={() => burgerClickHandler()}/>
+                    </div>
                     <div className="menu-items">
                         <Link to="/">
                             <div className="menu-item">Home</div>

@@ -1,0 +1,14 @@
+.project-summary {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.project-summary-title {
+    flex: 1;
+    font-size: 1.75rem;
+}
+
+.project-summary-description {
+    flex: 1;
+}
