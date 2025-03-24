@@ -19,6 +19,8 @@ RUN npm run build
 # Use the official NGINX image for production
 FROM nginx:stable-alpine as production
 
+WORKDIR /usr/src/app
+
 # copy nginx configuration in side conf.d folder
 COPY --from=build /usr/src/app/nginx /etc/nginx/conf.d
 
