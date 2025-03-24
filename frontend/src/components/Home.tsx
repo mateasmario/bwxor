@@ -5,7 +5,7 @@ function Home() {
     const [markdown, setMarkdown] = useState("Cannot find any content to display.");
 
     useEffect(() => {
-       fetch("./src/content/home.md")
+       fetch("https://raw.githubusercontent.com/mateasmario/bwxor/refs/heads/master/static/home.md")
            .then((response) => response.text())
            .then((text) => setMarkdown(text))
            .catch((error) => console.error(error));
