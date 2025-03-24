@@ -16,8 +16,17 @@ COPY frontend/. .
 # Build the frontend app
 RUN npm run build
 
-# Expose port 3000 to the outside world
-EXPOSE 5173
+# Use the official NGINX image for production
+FROM nginx:stable-alpine as production
 
-# Command to run the application
-CMD ["npm", "run", "prod"]
+# copy nginx configuration in side conf.d folder
+COPY --from=build /usr/src/app/nginx /etc/nginx/conf.d
+
+# Copy the build output from the dist folder into the Nginx html directory
+COPY --from=build /usr/src/app/frontend/dist /usr/share/nginx/html
+
+# Expose port 80 to allow access to the app
+EXPOSE 80
+
+# Run Nginx in the foreground
+ENTRYPOINT ["nginx", "-g", "daemon off;"]

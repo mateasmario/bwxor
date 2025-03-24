@@ -6,5 +6,6 @@ export default defineConfig({
   plugins: [react()],
   server: {
     allowedHosts: ['bwxor.com', 'www.bwxor.com']
-  }
+  },
+  base: "/",
 })
