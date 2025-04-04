@@ -20,3 +20,11 @@ The last phrase states that  `hashCode`'s return value depends on the JDK that i
 
 ## Primary keys?
 
+We use objects to model real-life data for our business scenario. Usually, we need a way to compare these objects. For example, a government application may need to find a way to identify every individual in a unique way (see SSN). I believe that there are two strategies of comparing objects: each one adjusted to the user's needs. The need of a custom comparison logic can be motivated by:
+
+1. uniquely identifying entities
+2. order entities based on their attributes
+
+The first case may reflect the SSN example above: you may want to find someone's medical records, but you have an entire list of such records, each one associated to a unique identifier. In this case, it is the Social Security number. The second motivation can be found on a list of patients that wait in a queue: they are prioritized based on the severity of the problem. This can be a formula that sums up the existing symptoms and multiplies each symptom with a severity factor.
+
+Either way, one may need to specify the way objects are compared.
