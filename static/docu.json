@@ -1,7 +1,7 @@
 [
   {
     "slug": "java-comparators-and-comparables",
-    "display": "Comparables and Comparators in Java",
-    "description": "Implementing ways to compare objects - the Java way "
+    "display": "Comparing things in Java",
+    "description": "Quick guide on using Comparables and Comparators to perform comparisons between objects - the Java way."
   }
 ]
