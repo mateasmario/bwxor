@@ -36,18 +36,20 @@ function Menu() {
                     <Link to="/" className="menu-header">
                         <div className="menu-branding">Mario Mateaș</div>
                     </Link>
-                    <div className="menu-item-burger">
-                        <img src={burger} alt="" onClick={() => burgerClickHandler()}/>
+                    <div>
+                        <button className="menu-item-burger" onClick={() => burgerClickHandler()}>
+                            <img src={burger} alt="menu-item-burger"/>
+                        </button>
                     </div>
                     <div className="menu-items">
                         <Link to="/">
-                            <div className="menu-item">Home</div>
+                            <span className="menu-item">Home</span>
                         </Link>
                         <Link to="/projects">
-                            <div className="menu-item">Projects</div>
+                            <span className="menu-item">Projects</span>
                         </Link>
                         <Link to="/docu">
-                            <div className="menu-item">Documentation</div>
+                            <span className="menu-item">Documentation</span>
                         </Link>
                     </div>
                 </div>
@@ -56,9 +58,9 @@ function Menu() {
                 }
             </nav>
 
-            <div className="body-content">
+            <main className="body-content">
                 <Outlet/>
-            </div>
+            </main>
         </>
     );
 }

@@ -27,10 +27,10 @@ function ItemList(props: ItemListProps) {
     }, [props.category]);
 
     return (
-        <div className="projects">
+        <section className="projects">
             {items.map((item: ItemInfo) => <ItemSummary key={item.slug} category={props.category} slug={item.slug}
                                                         display={item.display} description={item.description}/>)}
-        </div>
+        </section>
     );
 }
 

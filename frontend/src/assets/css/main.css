@@ -107,6 +107,8 @@ body {
         justify-content: flex-end;
         height: 2rem;
         flex: 1;
+        background-color: transparent;
+        border: none;
     }
 
     .menu-items-small {

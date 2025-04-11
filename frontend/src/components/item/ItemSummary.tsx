@@ -9,14 +9,14 @@ interface ItemSummaryProps {
 
 function ItemSummary(props : ItemSummaryProps) {
     return (
-        <div id={props.slug} className="item-summary">
+        <article id={props.slug} className="item-summary">
             <div className="item-summary-title">
                 <Link to={"/" + props.category + "/" + props.slug}>{props.display ? props.display : "No item"}</Link>
             </div>
             <div className="item-summary-description">
                 {props.description}
             </div>
-        </div>
+        </article>
     );
 }
 
