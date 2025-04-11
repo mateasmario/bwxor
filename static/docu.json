@@ -1,7 +1,7 @@
 [
   {
-    "slug": "react-on-ec2",
-    "display": "Hosting a React (Vite) app on an EC2 instance with Nginx",
-    "description": "Test description here :D"
+    "slug": "java-comparators-and-comparables",
+    "display": "Comparing things in Java",
+    "description": "Quick guide on using Comparables and Comparators to perform comparisons between objects - the Java way."
   }
 ]
