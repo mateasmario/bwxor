@@ -12,6 +12,10 @@ sudo docker build -t bwxor .
 ```
 docker run -d -p 80:5173 bwxor
 ```
+or, if using Nginx:
+```
+docker run -d -p 80:80 bwxor
+```
 
 `80` is the machine listening port, getting mapped to the vite server that runs locally on port `5173`.
 
