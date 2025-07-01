@@ -1,4 +1,4 @@
-function TranslatedItem(props: {status?, title?, romanian, german}) {
+function TranslatedItem(props: {status? : string, title? : string, romanian : string, german: string}) {
     return (
         <div className="translated-item-group">
             <div className="translated-item-title">{props.status} {props.title}</div>
