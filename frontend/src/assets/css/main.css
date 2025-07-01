@@ -165,3 +165,34 @@ a {
 a:hover {
     text-decoration: underline;
 }
+
+.translated-item-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+}
+
+.translated-item-group {
+    display: flex;
+    flex-direction: column;
+    gap: .25vh;
+}
+
+.translated-item-title {
+    font-weight: bold;
+    flex: 1;
+}
+
+.translated-item-romanian {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.translated-item-german {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    font-size: 85%;
+    font-style: italic;
+}
