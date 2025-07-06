@@ -5,7 +5,7 @@ FROM node:18-alpine AS build
 WORKDIR /usr/src/app/frontend
 
 # Copy package.json and package-lock.json to the container
-COPY frontend/package*.json ./
+COPY package*.json ./
 
 # Install frontend dependencies
 RUN npm install
