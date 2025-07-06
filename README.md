@@ -2,8 +2,11 @@
 
 #### Clone (or update) the repository locally:
 ```
-git clone https://github.com/mateasmario/bwxor
+git clone https://github.com/bwxor/web
 ```
+
+## Frontend
+
 #### Run `docker build` to create a new image from the `Dockerfile`:
 ```
 sudo docker build -t bwxor .
@@ -18,6 +21,10 @@ docker run -d -p 80:80 bwxor
 ```
 
 `80` is the machine listening port, getting mapped to the vite server that runs locally on port `5173`.
+
+## Backend
+
+Coming soon...
 
 # Maintenance
 
