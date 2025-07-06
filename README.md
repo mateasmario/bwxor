@@ -24,7 +24,11 @@ docker run -d -p 80:80 bwxor
 
 ## Backend
 
-Coming soon...
+Create a `.env` file with the following structure:
+```
+MONGODB_URI=mongodb+srv://mario:<PASSWORD>@bwxor.0vtzgzz.mongodb.net
+MONGODB_NAME=bwxor
+```
 
 # Maintenance
 
