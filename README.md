@@ -62,3 +62,8 @@ including `-all` also displays the recently stopped processes.
 docker logs <containerId>
 ```
 will show what went wrong with the startup of your container. `containerId` is to be found in the previous command.
+
+If there is no more space left on the `/var` partition, all container-related files can be removed via:
+```
+docker system prune --all --force
+```
