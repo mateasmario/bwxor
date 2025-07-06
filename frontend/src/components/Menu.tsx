@@ -34,7 +34,7 @@ function Menu() {
             <nav className="menu">
                 <div className="menu-layer">
                     <Link to="/" className="menu-header">
-                        <div className="menu-branding">Mario Mateaș</div>
+                        <div className="menu-branding">bwxor</div>
                     </Link>
                     <div>
                         <button className="menu-item-burger" onClick={() => burgerClickHandler()}>

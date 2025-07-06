@@ -5,8 +5,9 @@ function Home() {
     const [markdown, setMarkdown] = useState("Loading...");
 
     useEffect(() => {
-       fetch("https://raw.githubusercontent.com/mateasmario/bwxor/refs/heads/master/static/home.md")
-           .then((response) => response.text())
+       fetch("http://localhost:8080/pages/index")
+           .then((response) => response.json())
+           .then((data) => data.content)
            .then((text) => setMarkdown(text))
            .catch((error) => console.error(error));
     }, []);

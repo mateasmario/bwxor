@@ -11,8 +11,9 @@ function ItemView(props : ItemViewProps) {
     const [markdown, setMarkdown] = useState("Loading...");
 
     useEffect(() => {
-        fetch("https://raw.githubusercontent.com/mateasmario/bwxor/refs/heads/master/static/" + props.category + "/" + slug + ".md")
-            .then((response) => response.text())
+        fetch("http://localhost:8080/pages/" + props.category + "/" + slug)
+            .then((response) => response.json())
+            .then((data) => data[0].content)
             .then(
                 (data) => setMarkdown(data)
             )

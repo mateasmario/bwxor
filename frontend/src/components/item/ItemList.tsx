@@ -6,8 +6,9 @@ interface ItemListProps {
 }
 
 interface ItemInfo {
+    id : string | undefined;
     slug: string | undefined;
-    display: string | undefined;
+    title: string | undefined;
     description: string | undefined;
 }
 
@@ -15,7 +16,7 @@ function ItemList(props: ItemListProps) {
     const [items, setItems] = useState<ItemInfo[]>([]);
 
     useEffect(() => {
-        fetch("https://raw.githubusercontent.com/mateasmario/bwxor/refs/heads/master/static/" + props.category + ".json")
+        fetch("http://localhost:8080/pages/" + props.category)
             .then((response) => {
                 return response.json();
             })
@@ -28,8 +29,8 @@ function ItemList(props: ItemListProps) {
 
     return (
         <section className="projects">
-            {items.map((item: ItemInfo) => <ItemSummary key={item.slug} category={props.category} slug={item.slug}
-                                                        display={item.display} description={item.description}/>)}
+            {items.map((item: ItemInfo) => <ItemSummary key={item.id} category={props.category} slug={item.slug}
+                                                        title={item.title} description={item.description}/>)}
         </section>
     );
 }
