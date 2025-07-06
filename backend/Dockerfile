@@ -6,4 +6,5 @@ RUN mvn clean package -DskipTests
 FROM openjdk:24-jdk-slim
 WORKDIR /backend
 COPY --from=build /backend/target/backend-0.0.1-SNAPSHOT.jar .
+COPY .env /backend/.env
 CMD ["java", "-jar", "backend-0.0.1-SNAPSHOT.jar"]
