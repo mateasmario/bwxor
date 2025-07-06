@@ -11,7 +11,7 @@ function ItemView(props : ItemViewProps) {
     const [markdown, setMarkdown] = useState("Loading...");
 
     useEffect(() => {
-        fetch("http://localhost:5000/pages/" + props.category + "/" + slug)
+        fetch("http://13.216.207.236:5000/pages/" + props.category + "/" + slug)
             .then((response) => response.json())
             .then((data) => data[0].content)
             .then(
