@@ -1,4 +1,4 @@
-FROM maven:3.8.4-openjdk-11-slim AS build
+FROM maven:3.9.10-amazoncorretto-24 AS build
 WORKDIR /backend
 COPY . .
 RUN mvn clean package -DskipTests
