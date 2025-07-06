@@ -3,7 +3,7 @@ WORKDIR /backend
 COPY . .
 RUN mvn clean package -DskipTests
 
-FROM openjdk:11-jre-slim
+FROM openjdk:24-jdk-slim
 WORKDIR /backend
 COPY --from=build /backend/target/backend-0.0.1-SNAPSHOT.jar .
 CMD ["java", "-jar", "backend-0.0.1-SNAPSHOT.jar"]
