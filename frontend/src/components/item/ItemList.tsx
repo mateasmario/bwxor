@@ -16,7 +16,7 @@ function ItemList(props: ItemListProps) {
     const [items, setItems] = useState<ItemInfo[]>([]);
 
     useEffect(() => {
-        fetch("http://localhost:5000/pages/" + props.category)
+        fetch("http://13.216.207.236:5000/pages/" + props.category)
             .then((response) => {
                 return response.json();
             })
