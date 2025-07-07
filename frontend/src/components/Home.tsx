@@ -5,7 +5,7 @@ function Home() {
     const [markdown, setMarkdown] = useState("Loading...");
 
     useEffect(() => {
-       fetch("http://13.216.207.236:5000/pages/index")
+       fetch("https://bwxor.com/api/pages/index")
            .then((response) => response.json())
            .then((data) => data.content)
            .then((text) => setMarkdown(text))
