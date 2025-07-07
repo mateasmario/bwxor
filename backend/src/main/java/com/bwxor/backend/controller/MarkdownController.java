@@ -15,6 +15,11 @@ public class MarkdownController {
     @Autowired
     private MarkdownService markdownService;
 
+    @GetMapping("health")
+    public ResponseEntity<String> getHealth() {
+        return ResponseEntity.ok("Backend server is healthy.");
+    }
+
     @GetMapping("pages/index")
     public ResponseEntity<Markdown> getIndex() {
         Markdown indexPage = markdownService.findIndex();
