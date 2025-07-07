@@ -56,7 +56,7 @@ Running Docker processes can be viewed by using:
 ```
 docker ps
 ```
-including `-all` also displays the recently stopped processes.
+including `-a` also displays the recently stopped processes.
 
 ```
 docker logs <containerId>
