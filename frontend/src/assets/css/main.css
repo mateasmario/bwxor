@@ -124,6 +124,22 @@ body {
     .menu-header {
         flex: 1;
     }
+
+    .hidden-for-mobile {
+        display: none;
+    }
+
+    .button {
+        justify-content: center;
+    }
+
+    .social-group {
+        align-items: flex-end;
+    }
+
+    .social-group-item {
+        max-width: 48px;
+    }
 }
 
 .menu-header {
@@ -166,33 +182,46 @@ a:hover {
     text-decoration: underline;
 }
 
-.translated-item-list {
+.split {
     display: flex;
-    flex-direction: column;
-    gap: 1vh;
+    flex-direction: row;
+    gap: 5vh;
 }
 
-.translated-item-group {
-    display: flex;
-    flex-direction: column;
-    gap: .25vh;
+.split-left {
+    flex: .85;
 }
 
-.translated-item-title {
-    font-weight: bold;
+.split-right {
+    flex: .15;
+}
+
+.social-group {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.social-group-item {
     flex: 1;
 }
 
-.translated-item-romanian {
+.button {
+    background-color: #f1f1f1;
+    border: 0px;
+    padding: .75rem;
     display: flex;
-    flex-direction: column;
-    flex: 1;
+    align-items: center;
+    gap: 0.3rem;
+    width: 100%;
+    font-size: .9rem;
 }
 
-.translated-item-german {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    font-size: 85%;
-    font-style: italic;
+.button:hover {
+    background-color: #f5f5f5;
+    cursor: pointer;
+}
+
+.button-group-item a {
+    text-decoration: none;
 }
