@@ -2,7 +2,6 @@ import {useEffect, useState} from "react";
 
 function Spy() {
     const [started, setStarted] = useState(false);
-    const [words, setWords] = useState<string[]>([]);
     const [noPlayers, setNoPlayers] = useState(2)
     const [revealed, setRevealed] = useState(false);
     const [revealedWord, setRevealedWord] = useState("");
@@ -12,23 +11,22 @@ function Spy() {
     const [timerStarted, setTimerStarted] = useState(false);
     const [seconds, setSeconds] = useState(240);
 
-    function getRandomInt(min, max) {
+    function getRandomInt(min : number, max : number) {
         min = Math.ceil(min);
         max = Math.floor(max);
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 
-    const handleSliderChange = (event) => {
+    const handleSliderChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setNoPlayers(parseInt(event.target.value));
     }
 
-    const handleGameStarted = (event) => {
+    const handleGameStarted = () => {
         setStarted(true);
 
-        const wordsElement = document.getElementById("words");
+        const wordsElement = document.getElementById("words") as HTMLTextAreaElement | null;
 
         const words = wordsElement != null && wordsElement.value != null ? wordsElement.value.split('\n') : ["None"];
-        setWords(words);
 
         setSpyIndex(getRandomInt(0, noPlayers - 1));
         setCurrPlayerIndex(0);
@@ -37,7 +35,7 @@ function Spy() {
         setSelectedWord(words[selectedWordIndex]);
     }
 
-    const handleRevealCard = (event) => {
+    const handleRevealCard = () => {
         if (currPlayerIndex == spyIndex) {
             setRevealedWord("Spy");
         } else {
@@ -47,7 +45,7 @@ function Spy() {
         setRevealed(true);
     }
 
-    const handleNextPlayer = (event) => {
+    const handleNextPlayer = () => {
         setCurrPlayerIndex(currPlayerIndex + 1);
         setRevealed(false);
 
@@ -56,14 +54,14 @@ function Spy() {
         }
     }
 
-    const handleRestart = (event) => {
+    const handleRestart = () => {
         setStarted(false);
         setRevealed(false);
         setTimerStarted(false);
     }
 
     useEffect(() => {
-        let interval;
+        let interval: number | undefined;
 
         if (timerStarted) {
             interval = setInterval(() => {
