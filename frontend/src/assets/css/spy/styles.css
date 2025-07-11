@@ -1,0 +1,95 @@
+html, body {
+    margin: 0; /* Remove default margin */
+    padding: 0;
+}
+
+.spy-box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-family: PoppinsRegular;
+    height: 100vh;
+}
+
+.spy-input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 1rem;
+}
+
+.spy-input-group-items {
+    display: flex;
+    flex-direction: column;
+}
+
+.spy-input-group-item {
+    flex: 1;
+}
+
+.spy-textarea {
+    flex: 1;
+    font-size: 30px;
+    border: 1px solid #1b7cda;
+    resize: none;
+    width: 100%;
+    min-height: 300px;
+}
+
+.spy-slider {
+    width: 100%;
+    background: #d2d1d1;
+    border-radius: 8px;
+}
+
+.spy-slider::-webkit-slider-thumb {
+    cursor: pointer;
+}
+
+.spy-slider::-moz-range-thumb {
+    background: #1b7cda;
+    cursor: pointer;
+    border: 0;
+    border-radius: 5px;
+}
+
+.spy-slider::-moz-range-thumb:hover {
+    background: #318be3;
+    cursor: pointer;
+    border: 0;
+    border-radius: 5px;
+}
+
+.spy-player-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ababab;
+    border-radius: 10px;
+    min-width: 300px;
+    min-height: 350px;
+    padding: .5rem;
+}
+
+.spy-player-card-item {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.spy-timer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.spy-timer-item {
+    flex: 1;
+}
+
+.spy-timer-seconds {
+    font-size: 42px;
+}

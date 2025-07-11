@@ -10,6 +10,7 @@ import Home from "./components/Home.tsx";
 import ItemList from "./components/item/ItemList.tsx";
 import ItemView from "./components/item/ItemView.tsx";
 import Kerwei from "./components/kerwei/Kerwei.tsx";
+import Spy from "./components/spy/Spy.tsx";
 
 const router = createBrowserRouter(
     createRoutesFromElements(
@@ -22,6 +23,7 @@ const router = createBrowserRouter(
             <Route path="docu/:slug" element={<ItemView category="docu"/>} />
         </Route>
             <Route path="kerwei" element={<Kerwei />} />
+            <Route path="apps/spy" element={<Spy />} />
         </>
     )
 )

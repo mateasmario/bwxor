@@ -254,6 +254,14 @@ a:hover {
     cursor: pointer;
 }
 
+.button-gray {
+    background-color: #d3d3d3;
+}
+
+.button-gray:hover {
+    background-color: #e5e5e5;
+}
+
 .button-group-item a {
     text-decoration: none;
 }
@@ -310,6 +318,7 @@ a:hover {
     gap: .5rem;
     min-width: 200px;
     min-height: 100px;
+    max-height: 100px;
 }
 
 .app-button-row {
@@ -337,4 +346,13 @@ a:hover {
 
 .app-button-category-utility {
     background-color: #ff1f53;
+}
+
+
+.text-title {
+    font-family: Merriweather;
+}
+
+.text-normal {
+    font-family: PoppinsRegular;
 }
