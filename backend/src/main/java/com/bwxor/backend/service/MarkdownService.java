@@ -15,10 +15,6 @@ public class MarkdownService {
     @Autowired
     private MarkdownRepository markdownRepository;
 
-    public Markdown findIndex() {
-        return markdownRepository.findByCategory("index").get(0);
-    }
-
     public List<MarkdownSummary> findByCategory(String category) {
         return markdownRepository.findByCategory(category).stream()
                 .map(MarkdownSummary::new)

@@ -18,12 +18,6 @@ public class MarkdownController {
     @Autowired
     private MarkdownService markdownService;
 
-    @GetMapping("/index")
-    public ResponseEntity<Markdown> getPagesIndex() {
-        Markdown indexPage = markdownService.findIndex();
-        return ResponseEntity.ok(indexPage);
-    }
-
     @GetMapping("/{category}")
     public ResponseEntity<List<MarkdownSummary>> getPagesByCategory(@PathVariable String category) {
         List<MarkdownSummary> indexPage = markdownService.findByCategory(category);
