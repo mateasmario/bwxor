@@ -190,10 +190,6 @@ img {
     color: black;
 }
 
-.menu a:hover {
-    text-decoration: none;
-}
-
 .menu-item:hover {
     background-color: #f5f5f5;
 }
@@ -249,7 +245,6 @@ a:hover {
     display: flex;
     align-items: center;
     gap: 0.3rem;
-    width: 100%;
     font-size: .9rem;
     justify-content: center;
 }
@@ -261,6 +256,10 @@ a:hover {
 
 .button-group-item a {
     text-decoration: none;
+}
+
+.button-full-width {
+    width: 100%;
 }
 
 .home-banner {
@@ -289,4 +288,53 @@ a:hover {
     flex-direction: row;
     align-items: center;
     justify-content: center;
+}
+
+.apps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.apps a:hover {
+    text-decoration: none;
+}
+
+.app-button {
+    background-color: #f1f1f1;
+    border: 0px;
+    padding: .75rem;
+    display: flex;
+    flex-direction: column;
+    font-size: .9rem;
+    gap: .5rem;
+    min-width: 200px;
+    min-height: 100px;
+}
+
+.app-button-row {
+    flex: 1;
+    color: black;
+}
+
+.app-button:hover {
+    background-color: #f5f5f5;
+    cursor: pointer;
+}
+
+.app-button-title {
+    font-weight: bold;
+}
+
+.app-button-category {
+    padding: .2rem .5rem;
+    border-radius: 20px;
+}
+
+.app-button-category-game {
+    background-color: #38cc38;
+}
+
+.app-button-category-utility {
+    background-color: #ff1f53;
 }

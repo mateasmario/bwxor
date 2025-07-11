@@ -7,6 +7,34 @@ import facebook from "../assets/img/social/facebook.png"
 import youtube from "../assets/img/social/youtube.png"
 import mail from "../assets/img/social/mail.png"
 import {Link} from "react-router-dom";
+import AppBox from "./app/AppBox.tsx";
+
+const applications = [
+    {
+        "title": "PDF Editor",
+        "description": "Provides options to split, merge, or convert images into PDF files.",
+        "url": "/apps/pdf",
+        "category": "Utility"
+    },
+    {
+        "title": "Spy",
+        "description": "Spy game with custom words.",
+        "url": "/apps/spy",
+        "category": "Game"
+    },
+    {
+        "title": "Randomizer",
+        "description": "Various ways to get random output based on your input.",
+        "url": "/apps/randomizer",
+        "category": "Utility",
+    },
+    {
+        "title": "Would you Rather?",
+        "description": "Dummy 'Would you Rather' game with AI-generated questions.",
+        "url": "/apps/wouldyourather",
+        "category": "Game"
+    }
+]
 
 function Home() {
     return (
@@ -26,12 +54,12 @@ function Home() {
                         <div className="button-group button-group-banner">
                             <div className="button-group-item">
                                 <Link to="/projects">
-                                    <button className="button">View my personal projects</button>
+                                    <button className="button button-full-width">View my personal projects</button>
                                 </Link>
                             </div>
                             <div className="button-group-item">
                                 <Link to="/docu">
-                                    <button className="button">See my technical blog posts</button>
+                                    <button className="button button-full-width">See my technical blog posts</button>
                                 </Link>
 
                             </div>
@@ -50,7 +78,7 @@ function Home() {
                         <div className="button-group button-group-social">
                             <div className="button-group-item">
                                 <a href="https://github.com/mateasmario/">
-                                    <button className="button button-social"><img src={github} width="24" height="24"/>
+                                    <button className="button button-full-width button-social"><img src={github} width="24" height="24"/>
                                         <span
                                             className="hidden-for-mobile">Follow on GitHub</span>
                                     </button>
@@ -58,7 +86,7 @@ function Home() {
                             </div>
                             <div className="button-group-item">
                                 <a href="https://www.linkedin.com/in/mario-matea%C8%99-b31628209/">
-                                    <button className="button button-social"><img src={linkedin} width="24"
+                                    <button className="button button-full-width button-social"><img src={linkedin} width="24"
                                                                                   height="24"/><span
                                         className="hidden-for-mobile">Connect on LinkedIn</span>
                                     </button>
@@ -66,7 +94,7 @@ function Home() {
                             </div>
                             <div className="button-group-item">
                                 <a href="https://ieeexplore.ieee.org/author/523355528908544">
-                                    <button className="button button-social"><img src={ieee} width="24"
+                                    <button className="button button-full-width button-social"><img src={ieee} width="24"
                                                                                   height="24"/><span
                                         className="hidden-for-mobile">View my publications</span>
                                     </button>
@@ -74,7 +102,7 @@ function Home() {
                             </div>
                             <div className="button-group-item">
                                 <a href="https://www.instagram.com/mario.mateas/">
-                                    <button className="button button-social"><img src={instagram} width="24"
+                                    <button className="button button-full-width button-social"><img src={instagram} width="24"
                                                                                   height="24"/><span
                                         className="hidden-for-mobile">Follow on Instagram</span>
                                     </button>
@@ -82,7 +110,7 @@ function Home() {
                             </div>
                             <div className="button-group-item">
                                 <a href="https://www.facebook.com/mateasmario">
-                                    <button className="button button-social"><img src={facebook} width="24"
+                                    <button className="button button-full-width button-social"><img src={facebook} width="24"
                                                                                   height="24"/><span
                                         className="hidden-for-mobile">Befriend on Facebook</span>
                                     </button>
@@ -90,7 +118,7 @@ function Home() {
                             </div>
                             <div className="button-group-item">
                                 <a href="https://www.youtube.com/@mmateas">
-                                    <button className="button button-social"><img src={youtube} width="24"
+                                    <button className="button button-full-width button-social"><img src={youtube} width="24"
                                                                                   height="24"/><span
                                         className="hidden-for-mobile">Subscribe on YouTube</span>
                                     </button>
@@ -98,13 +126,19 @@ function Home() {
                             </div>
                             <div className="button-group-item">
                                 <a href="mailto:mario@bwxor.com">
-                                    <button className="button button-social"><img src={mail} width="24"
+                                    <button className="button button-full-width button-social"><img src={mail} width="24"
                                                                                   height="24"/><span
                                         className="hidden-for-mobile">Contact me via E-Mail</span>
                                     </button>
                                 </a>
                             </div>
                         </div>
+                    </div>
+                </div>
+                <div>
+                    <h2>Applications</h2>
+                    <div className="apps">
+                        {applications.map((application) => <AppBox title={application.title} url={application.url} description={application.description} category={application.category} />)}
                     </div>
                 </div>
             </div>
