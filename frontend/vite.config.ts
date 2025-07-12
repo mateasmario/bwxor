@@ -8,4 +8,12 @@ export default defineConfig({
     allowedHosts: ['bwxor.com', 'www.bwxor.com']
   },
   base: "/",
+  optimizeDeps: {
+    exclude: ['@ffmpeg/ffmpeg'], // ⬅️ exclude ffmpeg din optimizare
+  },
+  build: {
+    rollupOptions: {
+      external: ['@ffmpeg/ffmpeg'], // ⬅️ tratează-l ca external
+    },
+  },
 })

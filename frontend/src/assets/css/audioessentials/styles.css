@@ -1,0 +1,8 @@
+.audioessentials-select-group {
+    display: flex;
+    flex-direction: row;
+    gap: .75rem;
+}
+
+.audioessentials-select-group-item {
+}

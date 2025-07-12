@@ -73,7 +73,6 @@ function Spy() {
         else {
             setSeconds(240);
         }
-
         return () => {
             clearInterval(interval);
         };
@@ -81,7 +80,7 @@ function Spy() {
 
     return (
         <>
-            <div className="spy-box">
+            <div className="app-box">
                 {
                     timerStarted ?
                         <>
@@ -139,23 +138,23 @@ function Spy() {
                             </>
                             :
                             <>
-                                <div className="spy-input-group">
-                                    <div className="spy-input-group-items">
-                                        <div className="spy-input-group-item">
-                                            <h2 className="text-title">Wordlist</h2>
-                                            <p>Every separate word should be delimited by a newline.</p>
+                                <div className="app-input-group">
+                                    <div className="app-input-group-items">
+                                        <div className="app-input-group-item">
+                                            <h2 className="text-title">Spy</h2>
+                                            Write a list of possible words.<br/>Every separate word should be delimited by a newline.
                                         </div>
-                                        <div className="spy-input-group-item">
-                                            <textarea id="words" className="spy-textarea"></textarea>
+                                        <div className="app-input-group-item">
+                                            <textarea id="words" className="textarea"></textarea>
                                         </div>
-                                        <div className="spy-input-group-item">
+                                        <div className="app-input-group-item">
                                             <h2 className="text-title">Number of players: {noPlayers}</h2>
                                             <input type="range" value={noPlayers} min="2" max="10"
-                                                   className="spy-slider"
+                                                   className="slider"
                                                    onChange={handleSliderChange}/>
                                         </div>
                                     </div>
-                                    <div className="spy-input-group-buttons">
+                                    <div className="app-input-group-buttons">
                                         <button className="button button-gray button-full-width"
                                                 onClick={handleGameStarted}>Start
                                         </button>

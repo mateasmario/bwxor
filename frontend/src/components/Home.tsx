@@ -33,6 +33,12 @@ const applications = [
         "description": "Dummy 'Would you Rather' game with AI-generated questions.",
         "url": "/apps/wouldyourather",
         "category": "Game"
+    },
+    {
+        "title": "AudioEssentials",
+        "description": "Tools for audio conversion.",
+        "url": "/apps/ae",
+        "category": "Utility"
     }
 ]
 
