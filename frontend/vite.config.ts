@@ -9,11 +9,11 @@ export default defineConfig({
   },
   base: "/",
   optimizeDeps: {
-    exclude: ['@ffmpeg/ffmpeg'], // ⬅️ exclude ffmpeg din optimizare
+    exclude: ['@ffmpeg/ffmpeg'],
   },
   build: {
     rollupOptions: {
-      external: ['@ffmpeg/ffmpeg'], // ⬅️ tratează-l ca external
+      external: [],
     },
   },
 })
