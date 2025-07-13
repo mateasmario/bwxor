@@ -92,6 +92,7 @@
     border-radius: 8px;
     -webkit-appearance: none;
     appearance: none;
+    height: 16px;
 }
 
 .spy-slider::-webkit-slider-thumb {
@@ -126,13 +127,13 @@
 
 .spy-slider::-webkit-slider-runnable-track {
     background: #1c1c1c;
-    height: 4px;
     border-radius: 8px;
+    height: 16px;
 }
 
 .spy-slider::-moz-range-track {
     background: #1c1c1c;
-    height: 4px;
+    height: 16px;
     border-radius: 8px;
 }
 

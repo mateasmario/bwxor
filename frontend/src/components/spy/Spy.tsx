@@ -70,6 +70,7 @@ function Spy() {
     }
 
     const handleWords = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+        setError(false);
         setWords(event.target.value);
     }
 
@@ -188,7 +189,7 @@ function Spy() {
                                         </div>
                                         <div className="app-input-group-item">
                                             <textarea id="words" className={error ? "spy-textarea spy-textarea-error" : "spy-textarea"}
-                                                      placeholder={placeholder} onChange={handleWords}></textarea>
+                                                      placeholder={placeholder} onChange={handleWords}>{words}</textarea>
                                         </div>
                                         <div className="app-input-group-item">
                                             <div className="spy-slider-group">
