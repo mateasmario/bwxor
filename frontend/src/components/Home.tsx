@@ -29,10 +29,10 @@ const applications = [
         "category": "Utility",
     },
     {
-        "title": "Would you Rather?",
-        "description": "Dummy 'Would you Rather' game with AI-generated questions.",
-        "url": "/apps/wouldyourather",
-        "category": "Game"
+        "title": "YouTubeToMP3",
+        "description": "Extract audio from any YouTube video.",
+        "url": "/apps/yt2mp3",
+        "category": "Utility"
     },
     {
         "title": "AudioEssentials",

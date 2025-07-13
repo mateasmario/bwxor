@@ -31,36 +31,38 @@ function Menu() {
 
     return (
         <>
-            <nav className="menu">
-                <div className="menu-layer">
-                    <Link to="/" className="menu-header">
-                        <div className="menu-branding">bwxor</div>
-                    </Link>
-                    <div>
-                        <button className="menu-item-burger" onClick={() => burgerClickHandler()}>
-                            <img src={burger} alt="menu-item-burger"/>
-                        </button>
+            <div className="body-padded">
+                <nav className="menu">
+                    <div className="menu-layer">
+                        <Link to="/" className="menu-header">
+                            <div className="menu-branding">bwxor</div>
+                        </Link>
+                        <div>
+                            <button className="menu-item-burger" onClick={() => burgerClickHandler()}>
+                                <img src={burger} alt="menu-item-burger"/>
+                            </button>
+                        </div>
+                        <div className="menu-items">
+                            <Link to="/">
+                                <span className="menu-item">Home</span>
+                            </Link>
+                            <Link to="/projects">
+                                <span className="menu-item">Projects</span>
+                            </Link>
+                            <Link to="/docu">
+                                <span className="menu-item">Documentation</span>
+                            </Link>
+                        </div>
                     </div>
-                    <div className="menu-items">
-                        <Link to="/">
-                            <span className="menu-item">Home</span>
-                        </Link>
-                        <Link to="/projects">
-                            <span className="menu-item">Projects</span>
-                        </Link>
-                        <Link to="/docu">
-                            <span className="menu-item">Documentation</span>
-                        </Link>
-                    </div>
-                </div>
-                {
-                    popupMenu ? <PopupMenu/> : null
-                }
-            </nav>
+                    {
+                        popupMenu ? <PopupMenu/> : null
+                    }
+                </nav>
 
-            <main className="body-content">
-                <Outlet/>
-            </main>
+                <main className="body-content">
+                    <Outlet/>
+                </main>
+            </div>
         </>
     );
 }

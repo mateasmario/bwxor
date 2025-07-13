@@ -1,6 +1,7 @@
 import {useRef, useState} from "react";
 import {FFmpeg} from "@ffmpeg/ffmpeg";
 import {fetchFile, toBlobURL} from "@ffmpeg/util";
+import '../../assets/css/audioessentials/styles.css'
 
 function AudioEssentials() {
     const [file, setFile] = useState<File|null>(null);

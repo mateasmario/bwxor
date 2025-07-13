@@ -1,4 +1,6 @@
 import {useEffect, useState} from "react";
+import '../../assets/css/spy/styles.css'
+import click from "../../assets/audio/spy/click.mp3"
 
 function Spy() {
     const [started, setStarted] = useState(false);
@@ -9,19 +11,31 @@ function Spy() {
     const [currPlayerIndex, setCurrPlayerIndex] = useState(0);
     const [selectedWord, setSelectedWord] = useState("");
     const [timerStarted, setTimerStarted] = useState(false);
-    const [seconds, setSeconds] = useState(240);
+    const [seconds, setSeconds] = useState(0);
+    const [totalTime, setTotalTime] = useState(2);
 
-    function getRandomInt(min : number, max : number) {
+    const placeholder = "Write a list of possible words.\nDelimit them by a new line.";
+
+    function getRandomInt(min: number, max: number) {
         min = Math.ceil(min);
         max = Math.floor(max);
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 
-    const handleSliderChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const handleTotalTime = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setTotalTime(parseInt(event.target.value));
+    }
+
+    const handleNoPlayers = (event: React.ChangeEvent<HTMLInputElement>) => {
         setNoPlayers(parseInt(event.target.value));
     }
 
     const handleGameStarted = () => {
+        const audio = new Audio(click);
+        audio.play();
+
+        setSeconds(totalTime * 60);
+
         setStarted(true);
 
         const wordsElement = document.getElementById("words") as HTMLTextAreaElement | null;
@@ -36,6 +50,9 @@ function Spy() {
     }
 
     const handleRevealCard = () => {
+        const audio = new Audio(click);
+        audio.play();
+
         if (currPlayerIndex == spyIndex) {
             setRevealedWord("Spy");
         } else {
@@ -46,6 +63,9 @@ function Spy() {
     }
 
     const handleNextPlayer = () => {
+        const audio = new Audio(click);
+        audio.play();
+
         setCurrPlayerIndex(currPlayerIndex + 1);
         setRevealed(false);
 
@@ -55,6 +75,9 @@ function Spy() {
     }
 
     const handleRestart = () => {
+        const audio = new Audio(click);
+        audio.play();
+
         setStarted(false);
         setRevealed(false);
         setTimerStarted(false);
@@ -69,9 +92,8 @@ function Spy() {
                     return prevTime > 0 ? prevTime - 1 : 0
                 });
             }, 1000);
-        }
-        else {
-            setSeconds(240);
+        } else {
+            setSeconds(totalTime * 60);
         }
         return () => {
             clearInterval(interval);
@@ -80,7 +102,7 @@ function Spy() {
 
     return (
         <>
-            <div className="app-box">
+            <div className="spy-app-box">
                 {
                     timerStarted ?
                         <>
@@ -92,7 +114,7 @@ function Spy() {
                                     Try to find the spy.
                                 </div>
                                 <div className="spy-timer-item">
-                                    <button className="button button-gray button-full-width"
+                                    <button className="spy-button button-full-width"
                                             onClick={handleRestart}>Restart
                                     </button>
                                 </div>
@@ -109,10 +131,12 @@ function Spy() {
                                                     <h2>Player {currPlayerIndex}</h2>
                                                 </div>
                                                 <div className="spy-player-card-item">
-                                                    <p>{revealedWord}</p>
+                                                    <div className="spy-word">
+                                                        <span className={revealedWord == "Spy" ? "spy-red" : ""}>{revealedWord}</span>
+                                                    </div>
                                                 </div>
                                                 <div className="spy-player-card-item">
-                                                    <button className="button button-gray button-full-width "
+                                                    <button className="spy-button button-full-width "
                                                             onClick={handleNextPlayer}>Next player
                                                     </button>
                                                 </div>
@@ -125,10 +149,12 @@ function Spy() {
                                                     <h2>Player {currPlayerIndex}</h2>
                                                 </div>
                                                 <div className="spy-player-card-item">
-                                                    <p>Click to reveal word</p>
+                                                    <div className="spy-player-card-icon">
+                                                        <span className="fa-solid fa-question"></span>
+                                                    </div>
                                                 </div>
                                                 <div className="spy-player-card-item">
-                                                    <button className="button button-gray button-full-width"
+                                                    <button className="spy-button button-full-width"
                                                             onClick={handleRevealCard}>Reveal card
                                                     </button>
                                                 </div>
@@ -141,21 +167,37 @@ function Spy() {
                                 <div className="app-input-group">
                                     <div className="app-input-group-items">
                                         <div className="app-input-group-item">
-                                            <h2 className="text-title">Spy</h2>
-                                            Write a list of possible words.<br/>Every separate word should be delimited by a newline.
+                                            <div className="spy-title-group">
+                                                <div className="spy-title-group-item fa-solid fa-user-secret"></div>
+                                                <div className="spy-title-group-item spy-title">Spy</div>
+                                            </div>
                                         </div>
                                         <div className="app-input-group-item">
-                                            <textarea id="words" className="textarea"></textarea>
+
                                         </div>
                                         <div className="app-input-group-item">
-                                            <h2 className="text-title">Number of players: {noPlayers}</h2>
-                                            <input type="range" value={noPlayers} min="2" max="10"
-                                                   className="slider"
-                                                   onChange={handleSliderChange}/>
+                                            <textarea id="words" className="spy-textarea"
+                                                      placeholder={placeholder}></textarea>
+                                        </div>
+                                        <div className="app-input-group-item">
+                                            <div className="spy-slider-group">
+                                                <div className="spy-slider-group-item">
+                                                    <h4>Players: {noPlayers}</h4>
+                                                    <input type="range" value={noPlayers} min="2" max="9"
+                                                           className="spy-slider"
+                                                           onChange={handleNoPlayers}/>
+                                                </div>
+                                                <div className="spy-slider-group-item">
+                                                    <h4>Time: {totalTime} minutes</h4>
+                                                    <input type="range" value={totalTime} min="2" max="9"
+                                                           className="spy-slider"
+                                                           onChange={handleTotalTime}/>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                     <div className="app-input-group-buttons">
-                                        <button className="button button-gray button-full-width"
+                                        <button className="spy-button button-full-width"
                                                 onClick={handleGameStarted}>Start
                                         </button>
                                     </div>

@@ -12,6 +12,7 @@ import ItemView from "./components/item/ItemView.tsx";
 import Kerwei from "./components/kerwei/Kerwei.tsx";
 import Spy from "./components/spy/Spy.tsx";
 import AudioEssentials from "./components/audioessentials/AudioEssentials.tsx";
+// import YouTube2Mp3 from "./components/yt2mp3/YouTube2Mp3.tsx";
 
 const router = createBrowserRouter(
     createRoutesFromElements(
@@ -26,6 +27,7 @@ const router = createBrowserRouter(
             <Route path="apps/spy" element={<Spy />} />
             <Route path="kerwei" element={<Kerwei />} />
             <Route path="apps/ae" element={<AudioEssentials />} />
+            {/*<Route path="apps/yt2mp3" element={<YouTube2Mp3 />} />*/}
         </>
     )
 )

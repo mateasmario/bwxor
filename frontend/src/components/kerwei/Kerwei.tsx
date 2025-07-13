@@ -1,4 +1,5 @@
 import TranslatedItem from "./TranslatedItem.tsx";
+import '../../assets/css/kerwei/styles.css'
 
 const hour = new Date().getHours();
 const min = new Date().getMinutes();
