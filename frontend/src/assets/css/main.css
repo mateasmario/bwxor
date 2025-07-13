@@ -367,7 +367,7 @@ a:hover {
     align-items: center;
     justify-content: center;
     font-family: PoppinsRegular;
-    height: 100vh;
+    height: 100svh;
 }
 
 .app-input-group {

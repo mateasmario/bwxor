@@ -13,6 +13,8 @@ function Spy() {
     const [timerStarted, setTimerStarted] = useState(false);
     const [seconds, setSeconds] = useState(0);
     const [totalTime, setTotalTime] = useState(2);
+    const [words, setWords] = useState<string>("")
+    const [error, setError] = useState(false);
 
     const placeholder = "Write a list of possible words.\nDelimit them by a new line.";
 
@@ -31,22 +33,27 @@ function Spy() {
     }
 
     const handleGameStarted = () => {
-        const audio = new Audio(click);
-        audio.play();
+        setError(false);
 
-        setSeconds(totalTime * 60);
+        let processedWords = words != null ? words.split('\n') : ["None"];
+        processedWords = processedWords.map(word => word.trim());
 
-        setStarted(true);
+        if (processedWords.length == 0 || processedWords.some((el: string) => el.length == 0)) {
+            setError(true);
+            return;
+        }
+        else {
+            const audio = new Audio(click);
+            audio.play();
 
-        const wordsElement = document.getElementById("words") as HTMLTextAreaElement | null;
+            setSeconds(totalTime * 60);
+            setStarted(true);
+            setSpyIndex(getRandomInt(0, noPlayers - 1));
+            setCurrPlayerIndex(0);
 
-        const words = wordsElement != null && wordsElement.value != null ? wordsElement.value.split('\n') : ["None"];
-
-        setSpyIndex(getRandomInt(0, noPlayers - 1));
-        setCurrPlayerIndex(0);
-
-        const selectedWordIndex = getRandomInt(0, words.length - 1);
-        setSelectedWord(words[selectedWordIndex]);
+            const selectedWordIndex = getRandomInt(0, processedWords.length - 1);
+            setSelectedWord(processedWords[selectedWordIndex]);
+        }
     }
 
     const handleRevealCard = () => {
@@ -60,6 +67,10 @@ function Spy() {
         }
 
         setRevealed(true);
+    }
+
+    const handleWords = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+        setWords(event.target.value);
     }
 
     const handleNextPlayer = () => {
@@ -176,8 +187,8 @@ function Spy() {
 
                                         </div>
                                         <div className="app-input-group-item">
-                                            <textarea id="words" className="spy-textarea"
-                                                      placeholder={placeholder}></textarea>
+                                            <textarea id="words" className={error ? "spy-textarea spy-textarea-error" : "spy-textarea"}
+                                                      placeholder={placeholder} onChange={handleWords}></textarea>
                                         </div>
                                         <div className="app-input-group-item">
                                             <div className="spy-slider-group">
