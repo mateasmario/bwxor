@@ -14,6 +14,13 @@
     font-family: PoppinsRegular;
 }
 
+@media (orientation: landscape) {
+    .spy-app-box {
+        min-height: 100svh;
+        height: auto;
+    }
+}
+
 .spy-player-card {
     display: flex;
     flex-direction: column;

@@ -4,23 +4,34 @@ import {fetchFile, toBlobURL} from "@ffmpeg/util";
 import '../../assets/css/audioessentials/styles.css'
 
 function AudioEssentials() {
-    const [file, setFile] = useState<File|null>(null);
+    const [file, setFile] = useState<File | null>(null);
     const [from, setFrom] = useState("mp3");
     const [to, setTo] = useState("mp3");
+    const [tempoMultiplier, setTempoMultiplier] = useState("1");
+    const [pitchMultiplier, setPitchMultiplier] = useState("1");
     const [loading, setLoading] = useState(false);
     const [done, setDone] = useState(false);
     const [error, setError] = useState(false);
     const ffmpegRef = useRef(new FFmpeg());
 
+    const handleChangeTempo = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setTempoMultiplier(event.target.value);
+    }
+
+    const handleChangePitch = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setPitchMultiplier(event.target.value);
+    }
 
     const handleChangeFile = (event: React.ChangeEvent<HTMLInputElement>) => {
         if (event.target.files != null) {
             setFile(event.target.files[0]);
-        }
-    }
 
-    const handleChangeFrom = (event: React.ChangeEvent<HTMLSelectElement>) => {
-        setFrom(event.target.value);
+            if (file != null) {
+                const extensionIndex = file.name.lastIndexOf(".") + 1;
+                const extension = file.name.substring(extensionIndex);
+                setFrom(extension);
+            }
+        }
     }
 
     const handleChangeTo = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -38,8 +49,6 @@ function AudioEssentials() {
         const inputFile = "input." + from;
         const outputFile = "output." + to;
 
-        console.log(file);
-
         if (!file) {
             setLoading(false);
             setError(true);
@@ -48,7 +57,12 @@ function AudioEssentials() {
 
         try {
             await ffmpeg.writeFile(inputFile, await fetchFile(file));
-            await ffmpeg.exec(['-i', inputFile, outputFile]);
+            await ffmpeg.exec([
+                `-i`, inputFile,
+                `-filter:a`, `atempo=${tempoMultiplier},asetrate=44100*${pitchMultiplier},aresample=44100`,
+                outputFile
+            ]);
+            console.log(outputFile);
             const data = await ffmpeg.readFile(outputFile) as Uint8Array;
 
             // Create a Blob from the Uint8Array returned by ffmpeg
@@ -72,7 +86,7 @@ function AudioEssentials() {
         }
     }
 
-    const handleConvert = () => {
+    const handleProcess = () => {
         setDone(false);
         setLoading(true);
         setError(false);
@@ -93,25 +107,29 @@ function AudioEssentials() {
                                    onChange={handleChangeFile}/>
                         </div>
                         <div className="app-input-group-item">
+                            <div className="app-slider-group">
+                                <div className="app-slider-group-item">
+                                    Speed: {tempoMultiplier}x
+                                </div>
+                                <div className="app-slider-group-item">
+                                    <input type="range" min="0.5" step="0.05" max="5" value={tempoMultiplier}
+                                           onChange={handleChangeTempo}/>
+                                </div>
+                            </div>
+                            <div className="app-slider-group">
+                                <div className="app-slider-group-item">
+                                    Pitch: {pitchMultiplier}x
+                                </div>
+                                <div className="app-slider-group-item">
+                                    <input type="range" min="0.5" step="0.05" max="5" value={pitchMultiplier}
+                                           onChange={handleChangePitch}/>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="app-input-group-item">
                             <div className="audioessentials-select-group">
                                 <div className="audioessentials-select-group-item">
-                                    From
-                                </div>
-                                <div className="audioessentials-select-group-item">
-                                    <select id="from" onChange={handleChangeFrom}>
-                                        <option value="mp3">mp3</option>
-                                        <option value="mp4">mp4</option>
-                                        <option value="wav">wav</option>
-                                        <option value="aac">aac</option>
-                                        <option value="m4a">m4a</option>
-                                        <option value="ogg">ogg</option>
-                                        <option value="flac">flac</option>
-                                        <option value="wma">wma</option>
-                                        <option value="mkv">mkv</option>
-                                    </select>
-                                </div>
-                                <div className="audioessentials-select-group-item">
-                                    to
+                                    Output format:
                                 </div>
                                 <div className="audioessentials-select-group-item">
                                     <select id="to" onChange={handleChangeTo}>
@@ -130,26 +148,26 @@ function AudioEssentials() {
                         </div>
                     </div>
                     <div className="app-input-group-buttons">
-                        <button className="button button-gray button-full-width" onClick={handleConvert}>Convert
+                        <button className="button button-gray button-full-width" onClick={handleProcess}>Process
                         </button>
                     </div>
                     {loading ?
-                    <>
-                        Converting...
-                    </>
-                    :
+                        <>
+                            Processing...
+                        </>
+                        :
                         error ?
                             <>
-                                There was an error trying to convert your audio file.
+                                There was an error trying to process your audio file.
                             </>
                             :
-                                done ?
+                            done ?
                                 <>
-                                    Your file has been converted successfully.
+                                    Your file has been processed successfully.
                                 </>
-                    :
-                    <>
-                    </>}
+                                :
+                                <>
+                                </>}
                 </div>
             </div>
         </>

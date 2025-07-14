@@ -259,11 +259,11 @@ a:hover {
 }
 
 .button-gray {
-    background-color: #d3d3d3;
+    background-color: #b4b4b4;
 }
 
 .button-gray:hover {
-    background-color: #e5e5e5;
+    background-color: #c2c2c2;
 }
 
 .button-group-item a {
@@ -370,6 +370,13 @@ a:hover {
     height: 100svh;
 }
 
+@media (orientation: landscape) {
+    .app-box {
+        min-height: 100svh;
+        height: auto;
+    }
+}
+
 .app-input-group {
     display: flex;
     flex-direction: column;
@@ -427,4 +434,17 @@ a:hover {
 .text {
     min-width: 250px;
     min-height: 30px;
+}
+
+.app-slider-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.app-slider-group-item {
+    flex: 1;
+}
+
+input[type=range] {
+    width: 100%;
 }
