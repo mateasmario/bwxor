@@ -52,6 +52,10 @@ img {
         height: 100%;
     }
 
+    .menu-items a:hover {
+        text-decoration: none !important;
+    }
+
     .menu-item {
         display: flex;
         flex-direction: row;
@@ -195,7 +199,7 @@ img {
 }
 
 .menu-item:hover {
-    background-color: #e3e3e3;
+    background-color: #f3f3f3;
 }
 
 .body-content {
@@ -243,7 +247,7 @@ a:hover {
 }
 
 .button {
-    background-color: #e3e3e3;
+    background-color: #f1f1f1;
     border: 0px;
     padding: .75rem;
     display: flex;
@@ -256,6 +260,10 @@ a:hover {
 .button:hover {
     background-color: #e7e7e7;
     cursor: pointer;
+}
+
+.button a:hover {
+    text-decoration: none !important;
 }
 
 .button-gray {
@@ -313,7 +321,7 @@ a:hover {
 }
 
 .app-button {
-    background-color: #e3e3e3;
+    background-color: #f1f1f1;
     border: 0px;
     padding: .75rem;
     display: flex;
