@@ -1,3 +1,5 @@
+import {useTheme} from "../../context/ThemeContext.tsx";
+
 interface AppInfoProps {
     title: string | undefined;
     description: string | undefined;
@@ -6,10 +8,12 @@ interface AppInfoProps {
 }
 
 function AppBox(props: AppInfoProps) {
+    const {theme} = useTheme();
+
     return (
         <>
             <a href={props.url}>
-                <div className="app-button">
+                <div className={"app-button app-button-" + theme}>
                     <div className="app-button-row app-button-title">
                         {props.title}
                     </div>

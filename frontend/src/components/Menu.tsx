@@ -1,21 +1,25 @@
 import {Link, Outlet} from "react-router-dom";
-import burger from "../assets/img/menu.png"
+import {useTheme} from "../context/ThemeContext.tsx";
 import {useState} from "react";
 
-function PopupMenu() {
+interface PopupMenuProps {
+    theme: string
+}
+
+function PopupMenu(props: PopupMenuProps) {
+    const theme = props["theme"];
+
     return (
-        <div className="menu-layer-small">
-            <div className="menu-items-small">
-                <Link to="/">
-                    <div className="menu-item-small">Home</div>
-                </Link>
-                <Link to="/projects">
-                    <div className="menu-item-small">Projects</div>
-                </Link>
-                <Link to="/docu">
-                    <div className="menu-item-small">Documentation</div>
-                </Link>
-            </div>
+        <div className={"menu-items-small menu-items-small-" + theme}>
+            <Link to="/" style={{color: 'inherit'}} className={"menu-item-small-" + theme}>
+                Home
+            </Link>
+            <Link to="/projects" style={{color: 'inherit'}} className={"menu-item-small-" + theme}>
+                Projects
+            </Link>
+            <Link to="/docu" style={{color: 'inherit'}} className={"menu-item-small-" + theme}>
+                Documentation
+            </Link>
         </div>
     );
 }
@@ -23,43 +27,56 @@ function PopupMenu() {
 
 function Menu() {
     const [popupMenu, setPopupMenu] = useState(false);
+    const {theme, toggleTheme} = useTheme();
 
     function burgerClickHandler() {
-        console.log(popupMenu);
         setPopupMenu(!popupMenu);
     }
 
     return (
         <>
-            <div className="body-padded">
-                <nav className="menu">
-                    <div className="menu-layer">
-                        <Link to="/" className="menu-header">
-                            <div className="menu-branding">bwxor</div>
+            <div className={"body-padded body-padded-" + theme}>
+                <nav className={"menu menu-" + theme}>
+                    <div className="menu-branding">
+                        <Link to="/">
+                            <span className={"menu-branding-text-" + theme}>bwxor</span>
                         </Link>
-                        <div>
-                            <button className="menu-item-burger" onClick={() => burgerClickHandler()}>
-                                <img src={burger} alt="menu-item-burger"/>
-                            </button>
-                        </div>
-                        <div className="menu-items">
+                    </div>
+                    <div className="menu-small-buttons">
+                        <button className="menu-item-burger" onClick={toggleTheme}>
+                            <span
+                                className={"fa-solid fa-" + (theme == "light" ? "moon" : "sun") + " menu-item-burger-" + theme}></span>
+                        </button>
+                        <button className="menu-item-burger" onClick={() => burgerClickHandler()}>
+                            <span className={"fa-solid fa-bars menu-item-burger-" + theme}></span>
+                        </button>
+                    </div>
+                    <div className="menu-items">
+
+                        <div className="menu-items-main">
                             <Link to="/">
-                                <span className="menu-item">Home</span>
+                                <span className={"menu-item menu-item-" + theme}>Home</span>
                             </Link>
                             <Link to="/projects">
-                                <span className="menu-item">Projects</span>
+                                <span className={"menu-item menu-item-" + theme}>Projects</span>
                             </Link>
                             <Link to="/docu">
-                                <span className="menu-item">Documentation</span>
+                                <span className={"menu-item menu-item-" + theme}>Documentation</span>
                             </Link>
                         </div>
+                        <div className="menu-items-secondary">
+                            <div className={"menu-item menu-item-" + theme} onClick={toggleTheme}>
+                                <span
+                                    className={"fa-solid fa-" + (theme == "light" ? "moon" : "sun") + " menu-item-burger-" + theme}></span>
+                            </div>
+                        </div>
                     </div>
-                    {
-                        popupMenu ? <PopupMenu/> : null
-                    }
                 </nav>
+                {
+                    popupMenu ? <PopupMenu theme={theme}/> : null
+                }
 
-                <main className="body-content">
+                <main className={"body-content body-content-" + theme}>
                     <Outlet/>
                 </main>
             </div>

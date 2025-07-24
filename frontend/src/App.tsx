@@ -12,21 +12,22 @@ import ItemView from "./components/item/ItemView.tsx";
 import Kerwei from "./components/kerwei/Kerwei.tsx";
 import Spy from "./components/spy/Spy.tsx";
 import AudioEssentials from "./components/audioessentials/AudioEssentials.tsx";
+import {ThemeProvider} from "./context/ThemeContext.tsx";
 // import YouTube2Mp3 from "./components/yt2mp3/YouTube2Mp3.tsx";
 
 const router = createBrowserRouter(
     createRoutesFromElements(
         <>
-        <Route path="/" element={<Menu />}>
-            <Route index element={<Home />} />
-            <Route path="projects" element={<ItemList category="projects" />} />
-            <Route path="projects/:slug" element={<ItemView category="projects"/>} />
-            <Route path="docu" element={<ItemList category="docu" />} />
-            <Route path="docu/:slug" element={<ItemView category="docu"/>} />
-        </Route>
-            <Route path="apps/spy" element={<Spy />} />
-            <Route path="kerwei" element={<Kerwei />} />
-            <Route path="apps/ae" element={<AudioEssentials />} />
+            <Route path="/" element={<Menu/>}>
+                <Route index element={<Home/>}/>
+                <Route path="projects" element={<ItemList category="projects"/>}/>
+                <Route path="projects/:slug" element={<ItemView category="projects"/>}/>
+                <Route path="docu" element={<ItemList category="docu"/>}/>
+                <Route path="docu/:slug" element={<ItemView category="docu"/>}/>
+            </Route>
+            <Route path="apps/spy" element={<Spy/>}/>
+            <Route path="kerwei" element={<Kerwei/>}/>
+            <Route path="apps/ae" element={<AudioEssentials/>}/>
             {/*<Route path="apps/yt2mp3" element={<YouTube2Mp3 />} />*/}
         </>
     )
@@ -34,7 +35,10 @@ const router = createBrowserRouter(
 
 function App() {
     return (
-        <RouterProvider router={router} />
+        <ThemeProvider>
+            <RouterProvider router={router}/>
+        </ThemeProvider>
+
     );
 }
 

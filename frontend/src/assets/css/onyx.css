@@ -1,0 +1,272 @@
+/*Menu*/
+.menu-branding {
+    font-family: Merriweather;
+}
+
+.menu a {
+    color: black;
+}
+
+.menu-light {
+    background-color: white;
+}
+
+.menu-dark {
+    background-color: #1c1c1c;
+}
+
+.menu-branding-text-light {
+    color: black;
+}
+
+.menu-branding-text-dark {
+    color: white;
+}
+
+.menu-item-dark {
+    color: white;
+}
+
+.menu-item-light {
+    color: black;
+}
+
+.menu-item-small-dark {
+    background-color: #1c1c1c;
+}
+
+.menu-item-small-light {
+    background-color: white;
+}
+
+.menu-item-light:hover {
+    background-color: #f3f3f3;
+}
+
+.menu-item-dark:hover {
+    background-color: #262626;
+}
+
+.menu-items-small-light {
+    background-color: white;
+    color: black;
+}
+
+.menu-items-small-dark {
+    background-color: #1c1c1c;
+    color: white;
+}
+
+.menu-item-burger-light {
+    color: black;
+    font-size: 20px;
+}
+
+.menu-item-burger-dark {
+    color: white;
+    font-size: 20px;
+}
+
+.menu-small-buttons {
+    display: flex;
+    flex-direction: row;
+    gap: .5rem;
+}
+
+@media (min-width: 1000px) {
+    .menu {
+        font-family: PoppinsRegular;
+        display: flex;
+        flex-direction: row;
+        gap: 2rem;
+        padding: 0 1.5rem;
+        align-items: center;
+        height: 4.5rem;
+    }
+
+    .menu-small {
+        display: none;
+    }
+
+    .menu-items {
+        display: flex;
+        flex-direction: row;
+        height: 100%;
+        width: 100%;
+    }
+
+    .menu-items-main {
+        flex: 1;
+        display: flex;
+        flex-direction: row;
+        gap: .5rem;
+        height: 100%;
+        width: 100%;
+    }
+
+    .menu-items-secondary {
+        flex: 1;
+        display: flex;
+        flex-direction: row;
+        height: 100%;
+        align-items: center;
+        justify-content: flex-end;
+    }
+
+    .menu-items a:hover {
+        text-decoration: none !important;
+    }
+
+    .menu-item {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        height: 100%;
+        padding: 0 1rem;
+    }
+
+    .menu-item-burger {
+        display: none;
+    }
+
+    .menu-items-small {
+        display: none;
+    }
+}
+
+@media (max-width: 1000px) {
+    .menu {
+        font-family: PoppinsRegular;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 1.5rem;
+    }
+
+    .menu-branding {
+        flex: 1;
+    }
+
+    .menu-items {
+        display: none;
+    }
+
+    .menu-item {
+        display: none;
+    }
+
+    .menu-item-burger {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-end;
+        height: 2rem;
+        flex: 1;
+        background-color: transparent;
+        border: none;
+    }
+
+    .menu-items-small {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        font-family: PoppinsRegular;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+        padding-bottom: 1.5rem;
+    }
+}
+
+/*Buttons*/
+.button {
+    border: 0px;
+    padding: .75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: .9rem;
+    justify-content: center;
+}
+
+.button-light {
+    background-color: #f1f1f1;
+    color: black;
+}
+
+.button-dark {
+    background-color: #1c1c1c;
+    color: white;
+}
+
+.button-light:hover {
+    background-color: #e7e7e7;
+    cursor: pointer;
+}
+
+.button-dark:hover {
+    background-color: #262626;
+    cursor: pointer;
+}
+
+.button a:hover {
+    text-decoration: none !important;
+}
+
+/*Banners*/
+.banner {
+    padding: 1.5rem;
+    color: black;
+    display: flex;
+}
+
+.banner-light {
+    background-color: rgba(27, 124, 218, 0.34);
+    color: black;
+}
+
+.banner-dark {
+    background-color: rgb(15, 58, 113);
+    color: white
+}
+
+.banner-buttons {
+    display: flex;
+    align-items: center;
+}
+
+@media (min-width: 1000px) {
+    .banner {
+        flex-direction: row;
+        gap: 3rem;
+    }
+
+    .banner-content {
+        flex: .8;
+    }
+
+    .banner-buttons {
+        flex: .2;
+    }
+}
+
+@media (max-width: 1000px) {
+    .banner {
+        flex-direction: column;
+    }
+
+    .banner-content {
+        flex: 1;
+    }
+
+    .banner-buttons {
+        flex: 1;
+    }
+}
+
+/*Others*/
+.full-width {
+    width: 100%;
+}
