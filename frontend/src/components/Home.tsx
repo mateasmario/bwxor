@@ -1,5 +1,6 @@
 import architecture from "../assets/img/architecture.png"
-import github from "../assets/img/social/github.png"
+import githubDark from "../assets/img/social/github-dark.png"
+import githubLight from "../assets/img/social/github-light.png"
 import linkedin from "../assets/img/social/linkedin.png"
 import ieee from "../assets/img/social/ieee.png"
 import instagram from "../assets/img/social/instagram.png"
@@ -84,7 +85,7 @@ function Home() {
                         <h2 className="hidden-for-mobile">Social Media</h2>
                         <div className="button-group button-group-social">
                                 <a href="https://github.com/mateasmario/" style={{textDecoration: 'none'}}>
-                                    <button className={"button button-" + theme + " full-width button-social"}><img src={github}
+                                    <button className={"button button-" + theme + " full-width button-social"}><img src={(theme == "light") ? githubLight : githubDark}
                                                                                                     width="24"
                                                                                                     height="24"/>
                                         <span
