@@ -13,6 +13,8 @@ import Kerwei from "./components/kerwei/Kerwei.tsx";
 import Spy from "./components/spy/Spy.tsx";
 import AudioEssentials from "./components/audioessentials/AudioEssentials.tsx";
 import {ThemeProvider} from "./context/ThemeContext.tsx";
+import Register from "./components/auth/Register.tsx";
+import SignIn from "./components/auth/SignIn.tsx";
 // import YouTube2Mp3 from "./components/yt2mp3/YouTube2Mp3.tsx";
 
 const router = createBrowserRouter(
@@ -24,6 +26,8 @@ const router = createBrowserRouter(
                 <Route path="projects/:slug" element={<ItemView category="projects"/>}/>
                 <Route path="docu" element={<ItemList category="docu"/>}/>
                 <Route path="docu/:slug" element={<ItemView category="docu"/>}/>
+                <Route path="register" element={<Register/>}/>
+                <Route path="signin" element={<SignIn/>}/>
             </Route>
             <Route path="apps/spy" element={<Spy/>}/>
             <Route path="kerwei" element={<Kerwei/>}/>

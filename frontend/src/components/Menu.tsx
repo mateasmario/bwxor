@@ -20,6 +20,9 @@ function PopupMenu(props: PopupMenuProps) {
             <Link to="/docu" style={{color: 'inherit'}} className={"menu-item-small-" + theme}>
                 Documentation
             </Link>
+            <Link to="/signin" style={{color: 'inherit'}} className={"menu-item-small-" + theme}>
+                Sign in
+            </Link>
         </div>
     );
 }
@@ -62,6 +65,9 @@ function Menu() {
                             </Link>
                             <Link to="/docu">
                                 <span className={"menu-item menu-item-" + theme}>Documentation</span>
+                            </Link>
+                            <Link to="/signin">
+                                <span className={"menu-item menu-item-" + theme}>Sign in</span>
                             </Link>
                         </div>
                         <div className="menu-items-secondary">

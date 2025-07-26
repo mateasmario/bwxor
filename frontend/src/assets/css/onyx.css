@@ -211,6 +211,16 @@
     cursor: pointer;
 }
 
+.button-red {
+    background-color: #e40c2c;
+    color: white;
+}
+
+.button-red:hover {
+    background-color: #f32844;
+    cursor: pointer;
+}
+
 .button a:hover {
     text-decoration: none !important;
 }
@@ -264,6 +274,80 @@
     .banner-buttons {
         flex: 1;
     }
+}
+
+/*Form*/
+.form {
+    display: flex;
+    flex-direction: column;
+    min-width: 300px;
+    max-width: 500px;
+    gap: 1.5rem;
+}
+
+.form-item {
+    flex: 1;
+}
+
+.form-input-group {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.form-input-label {
+    flex: 1;
+}
+
+.form-input-area {
+    flex: 1;
+}
+
+.textbox {
+    padding: .35rem;
+}
+
+.textbox-light {
+    background-color: transparent;
+    color: #151515;
+    border-top: 0;
+    border-right: 0px;
+    border-bottom: 3px solid #737373;
+    border-left: 0;
+}
+
+.textbox-light:focus {
+    outline: none;
+    border-bottom: 3px solid #1b7cda;
+
+}
+
+.textbox-light:active {
+    outline: none;
+}
+
+.textbox-dark {
+    background-color: transparent;
+    color: white;
+    border-top: 0;
+    border-left: 0;
+    border-bottom: 3px solid #737373;
+    border-right: 0;
+}
+
+.textbox-dark:focus {
+    outline: none;
+    border-bottom: 3px solid #48a5ff;
+
+}
+
+.textbox-dark:active {
+    outline: none;
+}
+
+.form-tip {
+    flex: 1;
+    font-size: 12px;
 }
 
 /*Others*/
